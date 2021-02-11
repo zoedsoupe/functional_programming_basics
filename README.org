@@ -52,7 +52,7 @@ demonstrada no livro.
 | #                   | ++                 |
 | >>                  | ->                 |
 | <<                  | =                  |
-| ^                   | pow                |
+| ^                   | ^, ^^ or **        |
 | /                   | /                  |
 | mod                 | mod                |
 | div                 | div                |
