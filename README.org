@@ -30,8 +30,6 @@ PESSOAIS QUE PODEM SER USADOS COMO BASE PARA O INICÍO DOS ESTUDOS DE OUTRAS PES
 Essa tabela tem como sua principal função, me situar e me acostumar com  a sintaxe
 demonstrada no livro.
 
-=legenda=: ~\vert\vert~ === ~||~
-
 | Português Funcional | Haskell            |
 |---------------------+--------------------|
 | const               | definição indireta |
@@ -60,7 +58,7 @@ demonstrada no livro.
 | -                   | -                  |
 | *                   | *                  |
 | .e.                 | &&                 |
-| .ou.                | \vert\vert         |
+| .ou.                | \vert \vert        |
 | .não.               | not                |
 | >                   | >                  |
 | <                   | <                  |
@@ -68,7 +66,7 @@ demonstrada no livro.
 | <=                  | <=                 |
 | =                   | ==                 |
 | <>                  | /=                 |
-| \vertx (lambda)     | definição indireta |
+| \vert x (lambda)    | definição indireta |
 
 $ O tipo =a=, pode significar, dependendo da situação operacional, os tipos: =Int=,
 =Double=, =Integer=, =RealFrac=, =Fractional Integral= ou =Floating=, além de ocorrer às vezes,
