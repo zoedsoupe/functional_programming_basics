@@ -120,6 +120,7 @@ pi :: SymbolFrac
 pi = 3.14159
 
 e :: SymbolFrac
+e = 2.71828
 #+end_src
 
 Funções podem ser compostas! Leve em consideração a seguinte definição da função =quadsoma(x,y)=:
