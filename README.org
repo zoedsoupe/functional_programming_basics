@@ -7,7 +7,7 @@ Este repositório tem a finalidade de abrigar meus estudos e resoluções
 dos exercícios propostos pelo livro "Algoritmos Funcionais", escrito
 pelo =José Augusto Navarro=. Também pretendo extender esse repositório
 com os estudos pessoais desenvolvidos a parit de outras bibliografias
-sobre o assunto.
+sobre o assunto, logo, existirá uma pasta para cada bibliografia.
 
 Nele, é apresentada de forma introdutória, o paradigma declaritivo funcional
 aplicado à teoria dos conjuntos. A forma primordial de expressão dos códigos
@@ -21,6 +21,10 @@ Tenho em mente em criar outros repositórios onde abrigarei a resolução de exe
 de sites de desafio - como o =Hackerrank= ou =exercism= - além da implementação de algoritmos
 já conhecidos no ramo da Ciência da Computação em diversas outras linguagens nas quais possuo
 interesse, como: =Erlang=, =Elixir=, =Clojure=, entre outros dialetos de =LISP=.
+
+ps: ESTE REPOSITÓRIO NÃO TEM A INTENÇÃO DE SER UMA COMPLETA REVISÃO DAS
+BIBLIOGRAFIAS CITADAS, E SIM APRESENTAR NOTAS E RESUMOS DOS MEUS ESTUDOS
+PESSOAIS QUE PODEM SER USADOS COMO BASE PARA O INICÍO DOS ESTUDOS DE OUTRAS PESSOAS!
 
 * Tabela de tradução "português funcional" -> Haskell
 Essa tabela tem como sua principal função, me situar e me acostumar com  a sintaxe

@@ -1,0 +1,249 @@
+#+title: Princípios Operacionais Básicos
+
+* 2.1 Tipos de dados básicos
+
+| Nome              | Descrição                             | Haskell                       |
+|-------------------+---------------------------------------+-------------------------------|
+| número            | representa qualquer unidade numérica  | Int, Double, ...              |
+| lógico            | expressa o conceito lógico matemático | &&, not, \vert \vert          |
+| cadeia/carecteres | representa as strings ou Chars        | "" for String and '' for Char |
+| lista             | representa uma lista encadeada$       | [<tipo>]                      |
+| tupla             | representa uma tupla$2                | (<tipo>)                      |
+
+$ Uma lista é representada como um conjunto mutável, geralmente homogênio. Por ser uma lista encadeada
+(Linked List), ela é dividida em quatro segmentos operacionais:
+1. =head= -> formado pelo primeiro elemento da lista (cabeça);
+2. =init= -> formado por todos os elementos da lista, com exceção do último (arranjo);
+3. =tail= -> formado por todos os elementos da lista, com exceção do primeiro (cauda);
+4. =last= -> formado pelo último elemento da lista (último);
+
+$2 Uma tupla é representada como um conjunto imutável, geralmente heterogênio. É armazenada
+continuamente na memória, oferecendo acesso instantâneo a qualquer elemento indexado.
+
+* 2.2 Variáveis e constantes
+Em linguagens funcionais puras (=Haskell=), as variáveis tendem a ser imutáveis, isso significa
+que qualquer valor pode ser atribuido a uma variável, porém, após a asserção do valor,
+não será possível modificar a variável.
+
+Já em linguagens funcionais impuras (=Elixir=), as variáveis podem ser "redeclaradas", porém nesse caso
+em específico, se utiliza o conceito de =pattern matching=, significando que a variável não é modificada
+na memória, e sim é criada uma nova referência na memória, soó que tendo o mesmo apelido, ou "nome"
+da variável antiga, não produzindo, necessariamente, efeitos colaterais.
+
+As constantes podem ser criadas de forma ~explíta~ ou ~implícita~:
+- ~explícita~ -> =a = 2.4=;
+- ~implícita~ -> =🥧=;
+
+* 2.3 Operadores
+** 2.3.1 Aritméticos
+Podem ser divididos em ~unários~, afetando apenas uma entidade, ou ~binários~, indicando
+uma relação entre duas entidades.
+
+- Binários -> =["asserção", "exponenciação", "radiciação", "multiplicação", "divisão", "adição", "subtração", "concatenação"]=
+- Unários -> =["inversão positiva", "inversão negativa", "retorno de função"]=
+
+** 2.3.2 Relacionais
+Operadores que representam ~expressões relacionais~
+
+| Operador   | Operação           |
+|------------+--------------------|
+| >          | maior que          |
+| <>         | menor que          |
+| >=         | maior ou igual que |
+| <=         | menor ou igual que |
+| =          | igual a            |
+| <>         | diferente de       |
+
+** 2.3.3 Lógicos
+Operadores que representam ~expressões lógicas~
+
+| Operador | Operação  |
+|----------+-----------|
+| .não.    | negação   |
+| .e.      | conjunção |
+| .ou.     | disjunção |
+
+*** Tabelas verdade
+- Legenda:
+  - ~1~ -> =verdadeiro=
+  - ~0~ -> =falso=
+
+**** Negação
+| Condição | Resultado |
+|----------+-----------|
+|        0 |         1 |
+|        1 |         0 |
+
+**** Conjunção
+| Condição1 | Condição2 | Resultado |
+|-----------+-----------+-----------|
+|         0 |         0 |         0 |
+|         1 |         0 |         0 |
+|         0 |         1 |         0 |
+|         1 |         1 |         1 |
+
+**** Disjunção
+| Condição1 | Condição2 | Resultado |
+|-----------+-----------+-----------|
+|         0 |         0 |         0 |
+|         1 |         0 |         1 |
+|         0 |         1 |         1 |
+|         1 |         1 |         1 |
+
+* 2.5 Funções e contantes definidas
+A representação das funções, tanto quanto suas assinuturas em português funcional
+serão indicadas como:
+
+- Assinatura -> =<nome_função> (<argumentos>) >> <tipo_dado>=
+- Definição -> =<nome_função> (argumentos) << <operação>=
+
+Portanto, como exemplo, tenhamos a seguinte definição e assinatura da função ~soma~:
+- Assinatura -> =soma (número, número) >> número=
+- Definição -> =soma (valor1, valor2) << valor1 + valor2=
+
+Agora, representando em =Haskell=:
+#+begin_src haskell
+soma :: (Num a) => a -> a -> a
+soma valor1 valor2 = valor 1 + valor2
+
+{-
+?| soma 7 3
+>| 10
+-}
+#+end_src
+
+Podemos representar constantes da seguinte forma:
+#+begin_src haskell
+data SymbolFrac = (Floating a) => a
+
+pi :: SymbolFrac
+pi = 3.14159
+
+e :: SymbolFrac
+#+end_src
+
+Funções podem ser compostas! Leve em consideração a seguinte definição da função =quadsoma(x,y)=:
+#+begin_src
+1: quadrado (número) >> número
+2: quadrado (x) << x ^ 2
+3: soma (número, número) >> número
+4: soma (x, y) << x + y
+5: quadsoma (número, número) >> número
+6: quadsoma (x, y) << quadrado (soma(x, y))
+#+end_src
+
+Com base nisso, podemos definir as funções =lognat= e =logbas=:
+#+begin_Src haskell
+peso :: (Floating a) => a
+peso = 99999999.49
+
+lognat :: (Floating a) => a -> a
+lognat x = peso * (x ** (1 / peso) - 1)
+
+logbas :: (Floating a) => a -> a -> a
+logbas x b = lognat x / lognat b
+#+end_src
+
+* Exercícios
+
+** 1
+#+begin_src haskell
+pi :: (Floating a) => a
+pi = 3.14159
+
+area_circ :: (Floating a) => a -> a
+area_circ r = pi * pow r 2
+#+end_src
+** 2
+#+begin_src haskell
+qsoma :: (Num a) => a -> a -> a
+qsoma x y = pow (x + y) 2
+#+end_src
+** 3
+#+begin_src haskell
+pi :: (Floating a) => a
+pi = 3.14159
+
+e :: (Floating a) => a
+e = 2.71828
+
+pi_em_e :: (Num a) => a -> a
+pi_em_e x = (x * pi) / e
+#+end_src
+** 4
+#+begin_src haskell
+suc :: (Int a) => a -> a
+suc x = x + 1
+#+end_src
+** 5
+#+begin_src haskell
+c2f :: (Floating a) => a -> a
+c2f c = (c * 9 / 5) + 32
+#+end_src
+** 6
+#+begin_src haskell
+f2c :: (Floating a) => a -> a
+f2c f = (f - 32) * 5 / 9
+#+end_src
+** 7
+#+begin_src haskell
+c2k :: (Floating a) => a -> a
+c2k c = c + 273.15
+#+end_src
+** 8
+#+begin_src haskell
+k2c :: (Floating a) => a -> a
+k2c k = k - 273.15
+#+end_src
+** 9
+#+begin_src haskell
+m2cm :: (Num a) => a -> a
+m2cm m = m * 100
+#+end_src
+** 10
+#+begin_src haskell
+eq :: (Eq a) -> a -> a -> Bool
+eq a b = a == b
+#+end_src
+** 11
+#+begin_src haskell
+ant :: (Int a) => a -> a
+ant x = x - 1
+#+end_src
+** 12
+#+begin_src haskell
+cub :: (Num a) => a -> a
+cub x = pow x 3
+#+end_src
+** 13
+#+begin_src haskell
+k2f :: (Num a) => a -> a
+k2f k = (k - 273.15) * 9 / 5 + 32
+#+end_src
+** 14
+#+begin_src haskell
+f2k :: (Num a) => a -> a
+f2k f = (f - 32) * 5 / 9 + 273.15
+#+end_src
+** 15
+#+begin_src haskell
+imc :: (Floating a) => a -> a -> a
+imc p a = p / pow a 2
+#+end_src
+** 16
+#+begin_src haskell
+prod :: (Num a) => a -> a
+prod a b = a * b
+#+end_src
+** 17
+#+begin_src haskell
+eq1degree :: (Num a) => a -> a -> a
+eq1degree a b = if a < 1 then error "0" else x
+                   where
+                     x = (0 - b) / a
+#+end_src
+** 18
+#+begin_src haskell
+area_ret :: (Num a) => a -> a
+area_ret a b = a * b
+#+end_src

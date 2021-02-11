@@ -1,0 +1,9 @@
+#+title: Algoritmos Funcionais
+
+* Index
+Aqui esão meus estudos separados por cada capítulo do livro:
+
+- [[./chapter_2.org][Capítulo 2]]
+
+ps: O index começa pelo capítulo 2, pois é o capítulo o qual
+se inicia as práticas.
