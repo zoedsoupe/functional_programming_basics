@@ -90,7 +90,7 @@ Operadores que representam ~expressões lógicas~
 |         0 |         1 |         1 |
 |         1 |         1 |         1 |
 
-* 2.5 Funções e contantes definidas
+* 2.5 Funções e constantes definidas
 A representação das funções, tanto quanto suas assinuturas em português funcional
 serão indicadas como:
 
@@ -152,12 +152,12 @@ pi :: (Floating a) => a
 pi = 3.14159
 
 area_circ :: (Floating a) => a -> a
-area_circ r = pi * pow r 2
+area_circ r = pi * (r ** 2)
 #+end_src
 ** 2
 #+begin_src haskell
 qsoma :: (Num a) => a -> a -> a
-qsoma x y = pow (x + y) 2
+qsoma x y = (x + y) ** 2
 #+end_src
 ** 3
 #+begin_src haskell
@@ -213,7 +213,7 @@ ant x = x - 1
 ** 12
 #+begin_src haskell
 cub :: (Num a) => a -> a
-cub x = pow x 3
+cub x = x ** 3
 #+end_src
 ** 13
 #+begin_src haskell
@@ -228,7 +228,7 @@ f2k f = (f - 32) * 5 / 9 + 273.15
 ** 15
 #+begin_src haskell
 imc :: (Floating a) => a -> a -> a
-imc p a = p / pow a 2
+imc p a = p / (a ** 2)
 #+end_src
 ** 16
 #+begin_src haskell
