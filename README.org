@@ -1,3 +1,71 @@
 #+title: Introdução a Programação Funcional
 #+author: Zoey de Souza Pessanha
 #+email: mdsp@boosting.tech
+
+* Sobre
+Este repositório tem a finalidade de abrigar meus estudos e resoluções
+dos exercícios propostos pelo livro "Algoritmos Funcionais", escrito
+pelo =José Augusto Navarro=. Também pretendo extender esse repositório
+com os estudos pessoais desenvolvidos a parit de outras bibliografias
+sobre o assunto.
+
+Nele, é apresentada de forma introdutória, o paradigma declaritivo funcional
+aplicado à teoria dos conjuntos. A forma primordial de expressão dos códigos
+apresentados no livro, é por meio do "português funcional", porém também são
+utilizadas as linguagens =Hope= e =Haskell=.
+
+O foco deste repositório é resolver e expandir os desafios e exercícios do livro,
+primordialmente utilizando a linguagem funcional pura =Haskell=, por decisões pessoais.
+
+Tenho em mente em criar outros repositórios onde abrigarei a resolução de exercícios
+de sites de desafio - como o =Hackerrank= ou =exercism= - além da implementação de algoritmos
+já conhecidos no ramo da Ciência da Computação em diversas outras linguagens nas quais possuo
+interesse, como: =Erlang=, =Elixir=, =Clojure=, entre outros dialetos de =LISP=.
+
+* Tabela de tradução "português funcional" -> Haskell
+Essa tabela tem como sua principal função, me situar e me acostumar com  a sintaxe
+demonstrada no livro.
+
+=legenda=: ~\vert\vert~ === ~||~
+
+| Português Funcional | Haskell            |
+|---------------------+--------------------|
+| const               | definição indireta |
+| var                 | definição indireta |
+| se                  | if                 |
+| então               | then               |
+| senão               | else               |
+| número              | a$                 |
+| lógico              | Bool               |
+| lista número        | [a]                |
+| nada                | []                 |
+| -o-                 | round              |
+| -o-                 | Ord                |
+| -o-                 | Eq                 |
+| escreva             | print              |
+| .verdadeiro.        | True               |
+| .falso.             | False              |
+| #                   | ++                 |
+| >>                  | ->                 |
+| <<                  | =                  |
+| ^                   | pow                |
+| /                   | /                  |
+| mod                 | mod                |
+| div                 | div                |
+| +                   | +                  |
+| -                   | -                  |
+| *                   | *                  |
+| .e.                 | &&                 |
+| .ou.                | \vert\vert         |
+| .não.               | not                |
+| >                   | >                  |
+| <                   | <                  |
+| >=                  | >=                 |
+| <=                  | <=                 |
+| =                   | ==                 |
+| <>                  | /=                 |
+| \vertx (lambda)     | definição indireta |
+
+$ O tipo =a=, pode significar, dependendo da situação operacional, os tipos: =Int=,
+=Double=, =Integer=, =RealFrac=, =Fractional Integral= ou =Floating=, além de ocorrer às vezes,
+o uso do recurso =fromIntegral=.
