@@ -104,7 +104,7 @@ Portanto, como exemplo, tenhamos a seguinte definição e assinatura da função
 Agora, representando em =Haskell=:
 #+begin_src haskell
 soma :: (Num a) => a -> a -> a
-soma valor1 valor2 = valor 1 + valor2
+soma valor1 valor2 = valor1 + valor2
 
 {-
 ?| soma 7 3
@@ -114,12 +114,10 @@ soma valor1 valor2 = valor 1 + valor2
 
 Podemos representar constantes da seguinte forma:
 #+begin_src haskell
-data SymbolFrac = (Floating a) => a
-
-pi :: SymbolFrac
+pi :: (Floating a) => a
 pi = 3.14159
 
-e :: SymbolFrac
+e :: (Floating a) => a
 e = 2.71828
 #+end_src
 
@@ -138,11 +136,11 @@ Com base nisso, podemos definir as funções =lognat= e =logbas=:
 peso :: (Floating a) => a
 peso = 99999999.49
 
-lognat :: (Floating a) => a -> a
-lognat x = peso * (x ** (1 / peso) - 1)
+logNat :: (Floating a) => a -> a
+logNat x = peso * (x ** (1 / peso) - 1)
 
-logbas :: (Floating a) => a -> a -> a
-logbas x b = lognat x / lognat b
+logBas :: (Floating a) => a -> a -> a
+logBas x b = logNat x / logNat b
 #+end_src
 
 * Exercícios
@@ -152,13 +150,13 @@ logbas x b = lognat x / lognat b
 pi :: (Floating a) => a
 pi = 3.14159
 
-area_circ :: (Floating a) => a -> a
-area_circ r = pi * (r ** 2)
+areaCirc :: (Floating a) => a -> a
+areaCirc r = pi * (r ** 2)
 #+end_src
 ** 2
 #+begin_src haskell
-qsoma :: (Num a) => a -> a -> a
-qsoma x y = (x + y) ** 2
+qSoma :: (Floating a) => a -> a -> a
+qSoma x y = (x + y) ** 2
 #+end_src
 ** 3
 #+begin_src haskell
@@ -168,12 +166,12 @@ pi = 3.14159
 e :: (Floating a) => a
 e = 2.71828
 
-pi_em_e :: (Num a) => a -> a
-pi_em_e x = (x * pi) / e
+piEme :: (Floating a) => a -> a
+piEme x = (x * pi) / e
 #+end_src
 ** 4
 #+begin_src haskell
-suc :: (Int a) => a -> a
+suc :: (Integral a) => a -> a
 suc x = x + 1
 #+end_src
 ** 5
@@ -203,17 +201,17 @@ m2cm m = m * 100
 #+end_src
 ** 10
 #+begin_src haskell
-eq :: (Eq a) -> a -> a -> Bool
+eq :: (Eq a) => a -> a -> Bool
 eq a b = a == b
 #+end_src
 ** 11
 #+begin_src haskell
-ant :: (Int a) => a -> a
+ant :: (Integral a) => a -> a
 ant x = x - 1
 #+end_src
 ** 12
 #+begin_src haskell
-cub :: (Num a) => a -> a
+cub :: (Floating a) => a -> a
 cub x = x ** 3
 #+end_src
 ** 13
@@ -238,13 +236,13 @@ prod a b = a * b
 #+end_src
 ** 17
 #+begin_src haskell
-eq1degree :: (Num a) => a -> a -> a
-eq1degree a b = if a < 1 then error "0" else x
+eq1Degree :: (Integral a, Ord a) => a -> a -> a
+eq1Degree a b = if a < 1 then error "0" else x
                    where
-                     x = (0 - b) / a
+                     x = div (-(0 - b)) a
 #+end_src
 ** 18
 #+begin_src haskell
-area_ret :: (Num a) => a -> a
-area_ret a b = a * b
+areaRet :: (Num a) => a -> a
+areaRet a b = a * b
 #+end_src
